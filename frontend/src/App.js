@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loginSuccess, logout } from './redux/store';
 import { ToastContainer, toast } from 'react-toastify';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://imovies-mern-project-84xj.onrender.com';
 const SEAT_ROWS = ['A', 'B', 'C', 'D', 'E'];
 const SEAT_COLS = [1, 2, 3, 4, 5, 6, 7, 8];
 
