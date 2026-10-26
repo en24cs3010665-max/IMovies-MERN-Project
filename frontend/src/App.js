@@ -38,8 +38,8 @@ export default function App() {
 
   const fetchMovies = async () => {
     try {
-      const res = await axios.get(`${API_URL}/movies`, {
-        params: { search, genre, language, location }
+    const res = await axios.get(`${API_URL}/api/movies`, {
+  params: { search, genre, language, location }
       });
       setMovies(res.data.movies || []);
     } catch (err) {
