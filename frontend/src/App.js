@@ -50,7 +50,7 @@ export default function App() {
   const fetchBookings = async () => {
     if (!token) return;
     try {
-      const res = await axios.get(`${API_URL}/bookings/my`, {
+  const res = await axios.get(`${API_URL}/api/bookings/my`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBookings(res.data || []);
@@ -70,8 +70,8 @@ export default function App() {
   const handleAuth = async (e) => {
     e.preventDefault();
     try {
-      const endpoint = isRegister ? '/auth/register' : '/auth/login';
-      const res = await axios.post(`${API_URL}${endpoint}`, authForm);
+    const endpoint = isRegister ? '/api/auth/register' : '/api/auth/login';
+const res = await axios.post(`${API_URL}${endpoint}`, authForm);
       dispatch(loginSuccess(res.data));
       toast.success(res.data.message);
       setActiveTab('movies');
@@ -99,7 +99,7 @@ export default function App() {
     }
     try {
       const res = await axios.post(
-        `${API_URL}/bookings`,
+   `${API_URL}/api/bookings`,
         {
           movieId: selectedMovie.id,
           showDate,
@@ -121,7 +121,7 @@ export default function App() {
 
   const cancelBooking = async (id) => {
     try {
-      await axios.patch(`${API_URL}/bookings/${id}/cancel`, {}, {
+     await axios.patch(`${API_URL}/api/bookings/${id}/cancel`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.info('Booking cancelled and seats released.');
